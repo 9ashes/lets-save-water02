@@ -6,6 +6,7 @@ import { createRoot } from 'react-dom/client';
 import { MantineProvider, AppShell } from '@mantine/core';
 import { theme, HEADER_HEIGHT } from './theme.js';
 import { AppContext, ROUTES, scrollToAnchor } from './lib.jsx';
+import { PasswordGate } from './PasswordGate.jsx';
 import { SiteHeader } from './SiteHeader.jsx';
 import { SiteFooter } from './SiteFooter.jsx';
 import { CookieConsent } from './CookieConsent.jsx';
@@ -29,6 +30,8 @@ function App() {
   const [lang, setLang] = React.useState('en'); // 'en' | 'cy'
   const [downloadsOpened, setDownloadsOpened] = React.useState(false);
   const [pressPackOpened, setPressPackOpened] = React.useState(false);
+  const [openWaterCompanyDropdown, setOpenWaterCompanyDropdown] = React.useState(false);
+  const [showPrivacyModal, setShowPrivacyModal] = React.useState(true);
 
   const navigate = React.useCallback((to, anchor = null) => {
     setRoute(to);
@@ -67,6 +70,7 @@ function App() {
     lang, setLang,
     downloadsOpened, setDownloadsOpened,
     openPressPack: () => setPressPackOpened(true),
+    openWaterCompanyDropdown, setOpenWaterCompanyDropdown,
   };
 
   let page;
@@ -76,20 +80,22 @@ function App() {
 
   return (
     <MantineProvider theme={theme} defaultColorScheme="light" env="test">
-      <AppContext.Provider value={ctx}>
-        <AppShell header={{ height: HEADER_HEIGHT }} padding={0}>
-          <AppShell.Header>
-            <SiteHeader />
-          </AppShell.Header>
-          <AppShell.Main>
-            {page}
-            <SiteFooter />
-          </AppShell.Main>
-        </AppShell>
+      <PasswordGate onUnlock={setShowPrivacyModal}>
+        <AppContext.Provider value={ctx}>
+          <AppShell header={{ height: HEADER_HEIGHT }} padding={0}>
+            <AppShell.Header>
+              <SiteHeader />
+            </AppShell.Header>
+            <AppShell.Main>
+              {page}
+              <SiteFooter />
+            </AppShell.Main>
+          </AppShell>
 
-        <CookieConsent />
-        <PressPackModal opened={pressPackOpened} onClose={() => setPressPackOpened(false)} />
-      </AppContext.Provider>
+          <CookieConsent forceShow={showPrivacyModal} />
+          <PressPackModal opened={pressPackOpened} onClose={() => setPressPackOpened(false)} />
+        </AppContext.Provider>
+      </PasswordGate>
     </MantineProvider>
   );
 }
