@@ -1,0 +1,6 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- England simplified shape -->
+  <path d="M 30 20 L 50 15 L 60 25 L 65 40 L 60 60 L 45 75 L 35 70 L 25 55 L 20 40 Z"
+        fill="#e8f4f8" stroke="#4a90e2" stroke-width="1.5"/>
+  <text x="42" y="50" font-size="24" font-weight="bold" text-anchor="middle" fill="#4a90e2" opacity="0.3">E</text>
+</svg>
