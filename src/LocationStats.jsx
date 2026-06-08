@@ -11,11 +11,11 @@ export function LocationStats() {
           <Stack gap="lg">
             <Title order={2}>Everyone has a part to play</Title>
             <Stack gap="md" maw={760}>
-              <Text>The water industry is already acting - investing billions to fix leaks, upgrade infrastructure and increase supply.</Text>
+              <Text c="dimmed">The water industry is already acting - investing billions to fix leaks, upgrade infrastructure and increase supply.</Text>
               <Box mb="lg" />
               <Title order={3}>That&apos;s where we all come in</Title>
-              <Text>Investment alone can&apos;t solve the challenge. It has to come from all of us. The small, everyday choices made in homes and workplaces can make a big difference.</Text>
-              <Text>Collective action is at the heart of this. No single effort solves it. But lots of small ones, taken together, add up to real change.</Text>
+              <Text c="dimmed">Investment alone can&apos;t solve the challenge. It has to come from all of us. The small, everyday choices made in homes and workplaces can make a big difference.</Text>
+              <Text c="dimmed">Collective action is at the heart of this. No single effort solves it. But lots of small ones, taken together, add up to real change.</Text>
             </Stack>
           </Stack>
         </Grid.Col>
