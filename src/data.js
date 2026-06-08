@@ -816,8 +816,8 @@ export const CAMPAIGN_GOALS = [
 
 export const CONTACT_ROUTES = [
   { id: 'general', label: 'General enquiries', email: 'enquiries@example.com' },
-  { id: 'press', label: 'Press', email: 'press@example.com' },
-  { id: 'data', label: 'Data requests', email: 'data@example.com' },
+  { id: 'media', label: 'Media', email: 'media@example.com' },
+  { id: 'partners', label: 'Partners', email: 'partners@example.com' },
 ];
 
 export const WATER_COMPANY_TOOLS = [
